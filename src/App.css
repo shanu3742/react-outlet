@@ -26,3 +26,6 @@
   width: 100%;
   background-color: rgb(247, 213, 200);
 }
+.selected{
+  color: green;
+}

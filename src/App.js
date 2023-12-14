@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useRef, useState } from 'react'
-import {BrowserRouter, Link, Route, Routes} from  'react-router-dom'
+import {BrowserRouter, Link, NavLink, Route, Routes} from  'react-router-dom'
 import Home from './page/home';
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
     <header className='nav-bar'>
       <img src={logo} className="App-logo" alt="logo"  />
       <div style={{margin:'auto'}}></div>
-      <Link  to='home' style={{marginRight:'10px'}}>Home</Link>
-      <Link to='about'  style={{marginRight:'10px'}}>About</Link>
-      <Link to='contact' style={{marginRight:'10px'}}>Contact</Link>
+      <NavLink  className={({isActive}) =>  isActive && 'selected'}  to='home' style={{marginRight:'10px'}}>Home</NavLink>
+      <NavLink  className={({isActive}) =>  isActive && 'selected'} to='about'  style={{marginRight:'10px'}}>About</NavLink>
+      <NavLink  className={({isActive}) =>  isActive && 'selected'} to='contact' style={{marginRight:'10px'}}>Contact</NavLink>
       
     
 

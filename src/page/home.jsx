@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -12,9 +12,9 @@ const Home = () => {
             </div>
 
 
-            <div className='home-routes'>
-            <Link  to='/home/product' style={{marginRight:'10px'}}>product</Link>
-            <Link  to='/home/order' style={{marginRight:'10px'}}>order</Link>
+            <div className='home-routes'> 
+            <NavLink  className={({isActive}) =>  isActive && 'selected'} to='/home/product' style={{marginRight:'10px'}}>product</NavLink>
+            <NavLink  className={({isActive}) =>  isActive && 'selected'} to='/home/order' style={{marginRight:'10px'}}>order</NavLink>
             </div>
 
         </div>
