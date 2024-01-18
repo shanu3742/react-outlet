@@ -5,39 +5,46 @@ import {BrowserRouter, Link, NavLink, Route, Routes} from  'react-router-dom'
 import Home from './page/home';
 
 function App() {
+  let data= ['skill','eng','avg','kumar']
+const [selectedTab,setSelectedTab]=useState('eng');
+const [index,setSelectedIndex] = useState(1)
+
+React.useEffect(() => {
+  let dataIndex=data.indexOf(selectedTab);
+  console.log(dataIndex)
+  setSelectedIndex(dataIndex)
+},[selectedTab])
 
 
+const onItemClick=(e)=>{
+  setSelectedTab(e)
+}
 
   return (
-    <BrowserRouter>
-    <div className="App">
-    <header className='nav-bar'>
-      <img src={logo} className="App-logo" alt="logo"  />
-      <div style={{margin:'auto'}}></div>
-      <NavLink  className={({isActive}) =>  isActive && 'selected'}  to='home' style={{marginRight:'10px'}}>Home</NavLink>
-      <NavLink  className={({isActive}) =>  isActive && 'selected'} to='about'  style={{marginRight:'10px'}}>About</NavLink>
-      <NavLink  className={({isActive}) =>  isActive && 'selected'} to='contact' style={{marginRight:'10px'}}>Contact</NavLink>
-      
+    <div className='nav'>
     
+     {
+      data.map((el,i) => {
+        return <div onClick={() =>onItemClick(el)} className={`nav-button ${i===index?'activeitem':  i===index-1?'first-sibiling-deactive-item':'other-sibiling-item'}`} style={{width:`${(100-0.5)/data.length}%`}}>
+          <div className='left-part'>
+            <div className='left-part-child'></div>
+          </div>
+          <div className='right-part'>
+          <div className='right-part-child'></div>
+          </div>
+          {i!==index &&  i !==index-1 && <div className='inactive-div-border'>
+            <div className='inactive-1'></div>
+            <div className='inactive-2'>
+              <div className='inactive-3'></div>
+            </div>
+            </div>}
 
-    </header>
-    <section className='main-section'>
-     
-      <Routes>
-        <Route path='/' element={<h1>Landing Page</h1>} />
-        <Route path='/home' element={<Home />} >
-            <Route path='/home' element={<h1>Home index</h1>} />
-            <Route path='/home/product' element={<h1>product comp</h1>} />
-            <Route path='/home/order' element={<h1>order comp</h1>} />
-        </Route>
-     
-        <Route path='/about' element={<h1>about</h1>} />
-        <Route path='/contact' element={<h1>contact</h1>} />
-      </Routes>
-      
-    </section>
+          <div className='button'>{el}</div>
+        </div>
+      })
+     }
+       <div className='nav-border'></div>
     </div>
-    </BrowserRouter>
   );
 }
 
