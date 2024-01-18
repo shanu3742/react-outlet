@@ -67,6 +67,7 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 .left-part-child{
   width: 100%;
