@@ -26,14 +26,18 @@ const onItemClick=(e)=>{
      {
       data.map((el,i) => {
         return <div onClick={() =>onItemClick(el)} className={`nav-button ${i===index?'activeitem':  i===index-1?'first-sibiling-deactive-item':'other-sibiling-item'}`} style={{width:`${(100-0.5)/data.length}%`}}>
-          <div className='left-part'>
-          <div className='left-part-border-child'></div>
-            <div className='left-part-child'></div>
-          </div>
-          <div className='right-part'>
-          <div className='right-remain-border'></div>
-          <div className='right-part-child'></div>
-          </div>
+          {
+            i!==0 && <div className='left-part'>
+            <div className='left-part-border-child'></div>
+              <div className='left-part-child'></div>
+            </div>
+          }
+          {
+            i !== data.length-1&& <div className='right-part'>
+            <div className='right-remain-border'></div>
+            <div className='right-part-child'></div>
+            </div>
+          }
           {i!==index &&  i !==index-1 && <div className='inactive-div-border'>
             <div className='inactive-1'></div>
             <div className='inactive-2'>
