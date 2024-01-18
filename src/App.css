@@ -46,7 +46,7 @@ justify-content: center;
   display: flex;
   justify-content: start;
   align-items: center;
-  border-top-right-radius: 15px;
+  border-top-right-radius: 20px;
 }
 .activeitem .right-part{
   position: absolute;
@@ -75,7 +75,7 @@ justify-content: center;
   background-color: white;
   border-bottom-right-radius: 40px;
   border-top: 1px solid #000000;
-  border-top-right-radius: 15px;
+  border-top-right-radius: 20px;
 
 }
 .right-part-child{
